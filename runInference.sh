@@ -15,9 +15,14 @@ apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mb
 mkdir /var/ai
 chown -R $user:users /var/ai
 chmod -R 755 /var/ai
-cd /var/ai 
+
+cd /var/ai/models
+
+echo "Found Models"
+ls
 
 # Install GGML
+cd /var/ai/
 git clone https://github.com/ggerganov/ggml 
 cd ggml
 mkdir build
