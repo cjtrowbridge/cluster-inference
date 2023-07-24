@@ -19,7 +19,7 @@ else
     exec ./setup.sh
     exit 0
 fi
-
+exit 0
 # Install/verify the required packages and dependencies
 apt-get update
 apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip} \
