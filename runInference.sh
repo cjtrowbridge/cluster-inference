@@ -28,6 +28,7 @@ cd ggml
 mkdir build
 cd build
 cmake ..
+cd bin
 make
 
 #/var/ai/ggml/examples/gpt-2/download-ggml-model.sh 117M
