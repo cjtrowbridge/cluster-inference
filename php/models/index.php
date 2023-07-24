@@ -10,8 +10,7 @@ function list_models() {
     foreach ($models as $model) {
         if ($model != "." && $model != "..") {
             //Check if the model is a binary file
-            $fileType = mime_content_type($modelDirectory . "/" . $model);
-            if ($fileType != "application/octet-stream") {
+            if(right($model,4)!=".bin") {
                 continue;
             }
             $list_of_models[] = $model;
