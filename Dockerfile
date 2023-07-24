@@ -9,4 +9,6 @@ RUN rm -rf /var/www/html/index.html
 
 EXPOSE 22 80 443
 
-ENTRYPOINT ["/var/ai/cluster-inference/setup.sh"]
+CMD /var/ai/cluster-inference/setup.sh
+
+ENTRYPOINT ["/bin/bash"]
