@@ -6,6 +6,20 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+# Check if the git repository is up to date
+git fetch origin
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse @{u})
+
+if [ $LOCAL = $REMOTE ]; then
+    echo "Repository is up to date. Continuing with the script."
+else
+    echo "Repository is not up to date. Pulling changes from GitHub..."
+    git pull origin
+    exec ./setup.sh
+    exit 0
+fi
+
 # Install/verify the required packages and dependencies
 apt-get update
 apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip} \
