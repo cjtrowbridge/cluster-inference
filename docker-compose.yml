@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    cluster-inference:
+        volumes:
+            - '/var/ai/models:/var/ai/models'
+        ports:
+            - '888:80'
+            - '889:443'
+        container_name: cluster-inference
+        image: cluster-inference
