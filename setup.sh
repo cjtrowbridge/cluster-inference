@@ -19,7 +19,7 @@ else
     exec ./setup.sh
     exit 0
 fi
-exit 0
+
 # Install/verify the required packages and dependencies
 apt-get update
 apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip} \
@@ -28,7 +28,7 @@ apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mb
 # Now make sure the /var/ai directory is there and permissioned correctly
 mkdir /var/ai
 # Determine the current user
-chown -R users:users /var/ai
+chown -R www-data:users /var/ai
 chmod -R 755 /var/ai
 
 echo "Found Models"
@@ -36,6 +36,8 @@ cd /var/ai/models && ls
 
 # Install GGML
 cd /var/ai/
+if [ -d "GGML" ]; then rm -Rf GGML; fi
+
 git clone https://github.com/ggerganov/ggml 
 cd /var/ai/ggml
 mkdir build
