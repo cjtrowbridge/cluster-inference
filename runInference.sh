@@ -13,13 +13,13 @@ apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mb
 
 # Now make sure the /var/ai directory is there and permissioned correctly
 mkdir /var/ai
+# Determine the current user
+user=$(logname)
 chown -R $user:users /var/ai
 chmod -R 755 /var/ai
 
-cd /var/ai/models
-
 echo "Found Models"
-ls
+cd /var/ai/models && ls
 
 # Install GGML
 cd /var/ai/
@@ -28,13 +28,14 @@ cd ggml
 mkdir build
 cd build
 cmake ..
+make
 
-/var/ai/ggml/examples/gpt-2/download-ggml-model.sh 117M
+#/var/ai/ggml/examples/gpt-2/download-ggml-model.sh 117M
 
 if [ -z "$1" ]
   then
-    /var/ai/ggml/build/bin/gpt-2 -m models/gpt-2-117M/ggml-model.bin -p "The meaning of life is"
+    /var/ai/ggml/build/bin/gpt-2 -m /var/ai/models/ggml-model-gpt-2-117M.bin -p "The meaning of life is"
   else
-    /var/ai/ggml/build/bin/gpt-2 -m models/gpt-2-117M/ggml-model.bin -p "$1"
+    /var/ai/ggml/build/bin/gpt-2 -m /var/ai/models/ggml-model-gpt-2-117M.bin -p "$1"
 fi
 
