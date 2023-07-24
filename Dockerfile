@@ -11,4 +11,4 @@ EXPOSE 22 80 443
 
 CMD /var/ai/cluster-inference/setup.sh
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-l", "-c"]
