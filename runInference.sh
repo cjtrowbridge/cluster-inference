@@ -30,4 +30,4 @@ cmake ..
 make
 
 #copy php directory to apache webroot
-cp -R /var/ai/cluster-inference/php /var/www/html
+#cp -R /var/ai/cluster-inference/php /var/www/html
