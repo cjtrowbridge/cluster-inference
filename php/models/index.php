@@ -10,7 +10,7 @@ function list_models($modelDirectory) {
     foreach ($models as $model) {
         if ($model != "." && $model != "..") {
             //Check if the model is a binary file
-            if(right($model,4)!=".bin") {
+            if(substr($model,-4)!=".bin") {
                 continue;
             }
             $list_of_models[] = $model;
