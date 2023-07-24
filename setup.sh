@@ -38,6 +38,11 @@ cd /var/ai/models && ls
 cd /var/ai/
 if [ -d "GGML" ]; then rm -Rf GGML; fi
 
+while true
+do
+	sleep 100
+done
+
 git clone https://github.com/ggerganov/ggml 
 cd /var/ai/ggml
 mkdir build
@@ -52,7 +57,4 @@ make
 
 
 
-while true
-do
-	sleep 100
-done
+
