@@ -1,7 +1,7 @@
 FROM debian:11.7-slim
 
 RUN mkdir -p /var/ai/models
-RUN apt update && apt install -y git apache2 php \
+RUN apt update && apt install -y git apache2 wget curl php \
         clang make cmake libsqlite3-dev build-essential nlohmann-json3-dev \
         php-bcmath php-cli php-bcmath php-bz2 php-curl php-intl php-gd php-mbstring php-zip
 
