@@ -25,6 +25,7 @@ apt-get update
 apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip} \
     clang make cmake libsqlite3-dev build-essential nlohmann-json3-dev
 
+
 # Now make sure the /var/ai directory is there and permissioned correctly
 mkdir /var/ai
 # Determine the current user
@@ -37,12 +38,6 @@ cd /var/ai/models && ls
 # Install GGML
 cd /var/ai/
 if [ -d "GGML" ]; then rm -Rf GGML; fi
-
-while true
-do
-	sleep 100
-done
-
 git clone https://github.com/ggerganov/ggml 
 cd /var/ai/ggml
 mkdir build
@@ -50,11 +45,11 @@ cd /var/ai/ggml/build
 cmake ..
 make
 
-#copy php directory to apache webroot
-#cp -R /var/ai/cluster-inference/php /var/www/html
+# Copy the php directory to apache webroot
+cp -R /var/ai/cluster-inference/php/* /var/www/html/
+service apache2 restart
 
-
-
-
-
-
+while true
+do
+	sleep 100
+done
