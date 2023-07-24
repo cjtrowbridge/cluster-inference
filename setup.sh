@@ -47,3 +47,12 @@ make
 
 #copy php directory to apache webroot
 #cp -R /var/ai/cluster-inference/php /var/www/html
+
+
+
+
+
+while true
+do
+	sleep 100
+done
