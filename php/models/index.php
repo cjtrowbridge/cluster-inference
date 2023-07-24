@@ -2,7 +2,7 @@
 
 $modelDirectory    = '/var/ai/models';
 
-function list_models() {
+function list_models($modelDirectory) {
     // Perform the necessary logic to get the list of available models
     //The models are all binary files in the models directory
     $list_of_models = array();
@@ -21,4 +21,4 @@ function list_models() {
     echo json_encode($list_of_models);
 }
 
-list_models();
+list_models($modelDirectory);
