@@ -13,6 +13,7 @@ function list_models($modelDirectory) {
             if(substr($model,-4)!=".bin") {
                 continue;
             }
+            $model = substr($model,0,(strlen($model)-4));
             $list_of_models[] = $model;
         }
     }
