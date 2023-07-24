@@ -47,7 +47,9 @@ make
 
 # Copy the php directory to apache webroot
 cp -R /var/ai/cluster-inference/php/* /var/www/html/
-service apache2 restart
+
+service apache2 start
+service ssh start
 
 while true
 do
