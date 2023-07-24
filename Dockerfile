@@ -7,5 +7,6 @@ RUN apt update && apt install -y git apache2 wget curl php \
 
 EXPOSE 22 80 443
 
+CMD cd /var/ai && rm -rf cluster-inference && rm -rf ggml
 CMD cd /var/ai && git clone https://github.com/cjtrowbridge/cluster-inference/ && cd cluster-inference && chmod +x runInference.sh && ./runInference.sh
-cmd rm -rf /var/www/html/index.html && cp -R /var/ai/cluster-inference/php /var/www/html
+CMD rm -rf /var/www/html/index.html && cp -R /var/ai/cluster-inference/php /var/www/html
