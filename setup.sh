@@ -22,7 +22,7 @@ fi
 
 # Install/verify the required packages and dependencies
 apt-get update
-apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip} \
+apt-get install -y git apache2 wget curl php php-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip,sqlite3} \
     clang make cmake libsqlite3-dev build-essential nlohmann-json3-dev
 
 
