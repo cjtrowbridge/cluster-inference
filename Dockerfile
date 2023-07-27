@@ -4,7 +4,7 @@ RUN mkdir -p /var/ai/models
 
 RUN apt update && apt install -y git apache2 wget curl php \
 	clang make cmake libsqlite3-dev build-essential nlohmann-json3-dev \
-	php-bcmath php-cli php-bcmath php-bz2 php-curl php-intl php-gd php-mbstring php-zip
+	php-bcmath php-cli php-bcmath php-sqlite3 php-bz2 php-curl php-intl php-gd php-mbstring php-zip
 
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
 
