@@ -48,6 +48,12 @@ make
 # Copy the php directory to apache webroot
 cp -R /var/ai/cluster-inference/php/* /var/www/html/
 
+# Set up the new config file to allow htaccess
+cp /var/ai/cluster-inference/apache2.conf /etc/apache2/sites-available/000-default.conf
+
+# Enable the rewrite module
+a2enmod rewrite
+
 service apache2 start
 service ssh start
 
