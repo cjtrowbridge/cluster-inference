@@ -18,6 +18,7 @@ cd cluster-inference
 make build
 
 # Open the web ui to view your models and run inference.
+http://dockerHostname:800
 
 ```
 
