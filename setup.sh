@@ -45,6 +45,12 @@ cd /var/ai/ggml/build
 cmake ..
 make
 
+# Install llama.cpp
+cd /var/ai
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+make
+
 # Copy the php directory to apache webroot
 cp -R /var/ai/cluster-inference/php/* /var/www/html/
 
